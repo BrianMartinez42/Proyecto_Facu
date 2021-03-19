@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilo1.css">
+    <link rel="stylesheet" href="fonts.css">    
+  </head>
+
+  <body>
+    <div class="contenedor">
+      <header>
+        <h1 class="title">Unidique</h1>
+      </header>
+      <div class="login">
+        <article class="fondo">
+          <img src="img/guest.png" alt="User">
+          <h3>Inicio de Sesión</h3>
+          <form action="validacion.php" method="post">
+            <span class="icon-user"></span><input class="inp" type="text" name="nombre" placeholder="Nombre de Usuario" autofocus>
+            <span class="icon-key"></span><input class="inp" type="password" name="pass" placeholder="Contraseña" ><br>
+            <a href="./password.html" class="he">He olvidado mi contraseña</a>
+            <input class="boton" type="submit" name="inicio" value="Iniciar Sesión">
+          </form>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>

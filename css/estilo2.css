@@ -1,0 +1,164 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper{
+	width: 1170px;
+	margin: auto;
+}
+
+.contenedor{
+	background: url(../img/back.jpg) no-repeat center center fixed;
+	height: 100vh;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+header{
+  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0,.3);
+}
+
+header h1{
+  margin-left: 30px;
+  font-size: 30px;
+}
+
+header a{
+  margin-right: 30px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 25px;
+  transition: all ease 300ms;
+}
+
+header a:hover{
+  color: rgb(180, 210, 212);
+}
+
+.nav-area{
+	float: right;
+	list-style: none;
+	margin-top: 07px;
+}
+
+.nav-area li{
+	display: inline-block;
+}
+
+.nav-area li a{
+	color: #fff;
+	text-decoration: none;
+	padding: 5px 20px;
+	font-family: poppins;
+	font-size: 20px;
+}
+
+.nav-area li a:hover{
+	background: #fff;
+	color: #333;
+}
+
+.logo img{
+	width: 100px;
+	float: left;
+	height: auto;
+}
+
+#asunto{
+    margin: auto;
+    width: 500px;
+ 
+}
+
+ul,ol {
+    list-style: none;
+}
+
+.nav li a:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.nav li a{
+    background-color: rgba(0, 0, 0,.3);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;    
+}
+.nav > li{
+    float: left;  
+}
+
+.nav li ul{
+    display: none; 
+    position: absolute;
+    min-width: 140px;
+}
+
+.nav li:hover>ul{
+    display: block;
+    
+}
+
+.nav li ul li{
+    position: relative;
+}
+
+.nav li ul li ul{
+    right: -140px;
+    top: 0px;
+}
+
+.botona{
+    background: #fff;
+	color: #000;
+	text-decoration: none;
+	padding: 5px 20px;
+	font-family: poppins;
+	font-size: 20px;
+}
+
+.botona:hover{
+	background: #000;
+	color: #fff;
+}
+
+.botonb{
+    background: red;
+	color: #fff;
+	text-decoration: none;
+	padding: 5px 20px;
+	font-family: poppins;
+	font-size: 20px;
+}
+
+.botonb:hover{
+	background: #fff;
+	color: #000;
+}
+
+.botonm{
+    background: lightblue;
+	color: #fff;
+	text-decoration: none;
+	padding: 5px 20px;
+	font-family: poppins;
+	font-size: 20px;
+}
+
+.botonm:hover{
+	background: #fff;
+	color: #000;
+}
