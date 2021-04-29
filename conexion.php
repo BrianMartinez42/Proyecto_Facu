@@ -1,3 +1,3 @@
-<?php 
-$conn= new mysqli('localhost','root','','proyecto');
+<?php
+  $conn= new mysqli('localhost','root','','proyecto');
 ?>

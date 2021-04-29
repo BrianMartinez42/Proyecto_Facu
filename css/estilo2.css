@@ -9,7 +9,7 @@
 }
 
 .contenedor{
-	background: url(../img/back.jpg) no-repeat center center fixed;
+	background: url(../img/back.jpg) no-repeat center center ;
 	height: 100vh;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -28,9 +28,10 @@ header{
   background-color: rgba(0, 0, 0,.3);
 }
 
-header h1{
+.contenedor__title /*IMPLEMENTAR METODOLOGIA BEM*/ {
   margin-left: 30px;
   font-size: 30px;
+  font-family: 'Libre Baskerville', serif;
 }
 
 header a{
@@ -46,17 +47,17 @@ header a:hover{
   color: rgb(180, 210, 212);
 }
 
-.nav-area{
+.wrapper__nav-area{
 	float: right;
 	list-style: none;
 	margin-top: 07px;
 }
 
-.nav-area li{
+.wrapper__nav-area li{
 	display: inline-block;
 }
 
-.nav-area li a{
+.wrapper__nav-area li a{
 	color: #fff;
 	text-decoration: none;
 	padding: 5px 20px;
@@ -64,7 +65,7 @@ header a:hover{
 	font-size: 20px;
 }
 
-.nav-area li a:hover{
+.wrapper__nav-area li a:hover{
 	background: #fff;
 	color: #333;
 }
@@ -78,7 +79,6 @@ header a:hover{
 #asunto{
     margin: auto;
     width: 500px;
- 
 }
 
 ul,ol {
@@ -95,21 +95,22 @@ ul,ol {
     color: #fff;
     text-decoration: none;
     padding: 10px 15px;
-    display: block;    
+    display: block;
 }
+
 .nav > li{
-    float: left;  
+    float: left;
 }
 
 .nav li ul{
-    display: none; 
+    display: none;
     position: absolute;
     min-width: 140px;
 }
 
 .nav li:hover>ul{
     display: block;
-    
+
 }
 
 .nav li ul li{
@@ -122,11 +123,12 @@ ul,ol {
 }
 
 .botona{
-    background: #fff;
+  background: #fff;
 	color: #000;
 	text-decoration: none;
 	padding: 5px 20px;
-	font-family: poppins;
+  margin-left: 15px;
+	font-family: 'Poppins', sans-serif;;
 	font-size: 20px;
 }
 
@@ -136,29 +138,29 @@ ul,ol {
 }
 
 .botonb{
-    background: red;
+  background: #FF0000;
 	color: #fff;
 	text-decoration: none;
 	padding: 5px 20px;
-	font-family: poppins;
+	font-family: 'Poppins', sans-serif;;
 	font-size: 20px;
 }
 
 .botonb:hover{
 	background: #fff;
-	color: #000;
+	color: #FF0000;
 }
 
 .botonm{
-    background: lightblue;
+  background: #00BFFF;
 	color: #fff;
 	text-decoration: none;
 	padding: 5px 20px;
-	font-family: poppins;
+	font-family: 'Poppins', sans-serif;;
 	font-size: 20px;
 }
 
 .botonm:hover{
 	background: #fff;
-	color: #000;
+	color: #00BFFF;
 }
