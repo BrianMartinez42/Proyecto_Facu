@@ -1,0 +1,34 @@
+<html lang="es">
+  <head>
+  	<title>Registro Profesor</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/estilo3.css">
+  </head>
+
+  <body>
+    <header>
+  		<h1 class="contenedor__title">Registro</h1>
+  	</header>
+  	<br/>
+  	<a href="index.html" class="button-grey">Inicio</a>
+    <div class="ventana">
+        <h3>Registrar</h3>
+        <form action="registro_profe.php" method="POST" name="form1">
+          Nombre
+          <div class="form-group">
+            <input class="form-control" type="text" name="nombre" autofocus>
+          </div>
+          Email
+          <div class="form-group">
+            <input class="form-control" type="email" name="mail">
+          </div>
+          Contraseña
+          <div class="form-group">
+            <input class="form-control" type="password" name="pass">
+          </div>
+          <input class="button-accept" type="submit" name="Enviar" value="Registrar">
+        </form>
+      </div>
+  </body>
+</html>

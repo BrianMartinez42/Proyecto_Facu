@@ -1,3 +1,10 @@
 <?php
-  $conn= new mysqli('localhost','root','','proyecto');
+
+  $databaseHost = 'localhost';
+  $databaseName = 'proyecto';
+  $databaseUsername = 'root';
+  $databasePassword = '';
+
+  $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+
 ?>

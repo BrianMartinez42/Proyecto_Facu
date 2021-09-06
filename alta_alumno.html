@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> </title>
+	<title>Registrar Alumno </title>
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootstrap.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -14,18 +14,28 @@
 		</header>
 
 		<div class="ventana">
-			<form method="POST" action="programa.php ?accion=alta" >
+			<form method="POST" action="alta_alumno.php" >
 				<div class="form-group">
+					<h3>Registrar Alumno</h3>
           Nombre de alumno
 					<input class="form-control" type="text" autofocus name="nombre">
           <br>
-          Edad alumno
-          <input class="form-control" type="text" autofocus name="edad">
+          Apellido
+          <input class="form-control" type="text" name="apellido">
+					<br>
+					Edad
+					<input class="form-control" type="num" name="edad">
+					<br>
+					DNI del Alumno
+					<input class="form-control" type="text" name="dni">
+					<br>
+					Sexo
+					<input class="form-control" type="num" name="sexo">
 				</div>
 
 				<br>
 				<div class="form-group">
-					<button class="boton1" type="submit"> Guardar </button>
+					<input class="button-accept" type="submit" name="Enviar" value="Registrar">
 				</div>
 
 			</form>
