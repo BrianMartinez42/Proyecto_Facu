@@ -1,5 +1,5 @@
 <?php
-    $conexion=mysqli_connect('localhost','root','','proyecto');
+    include_once("conexion.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/estilo2.css">
+    <link rel="stylesheet" href="./css/estilo3.css">
   </head>
 
   <body>
@@ -23,37 +23,45 @@
         <h1 class="contenedor__title">Unidique</h1>
       </header>
       <br>
-      <a href="alta_alumno.html" class="botona" type="submit"> Alta </a>
+
       <div class="col-lg-12 col-md-8">
+        <a href="alta_alumno.html" class="button-green" type="submit"> Alta </a>
+        <br><br>
         <table class="table bg-light table-bordered table-hover">
           <thead class="thead-dark">
-          <tr>
-            <th scope="col">DNI</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Edad</th>
-            <th scope="col">Sexo</th>
-            <th scope="col">Accion</th>
-          </tr>
+            <tr>
+              <th scope="col">DNI</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Edad</th>
+              <th scope="col">Sexo</th>
+              <th scope="col">Accion</th>
+            </tr>
+          </thead>
           <tbody>
             <?php
-              $sql="SELECT * FROM alumno";
-              $result=mysqli_query($conexion,$sql);
-              while($mostrar=mysqli_fetch_array($result)){
-            ?>
-            <tr>
-              <td><?php echo $mostrar['dni']?></td>
-          		<td><?php echo $mostrar['nombre']?></td>
-              <td><?php echo $mostrar['apellido']?></td>
-              <td><?php echo $mostrar['edad']?></td>
-              <td><?php echo $mostrar['sexo']?></td>
-          		<td>
-            		<a href="borrar.php?id='.$alumno['id'].'" class="botonb">Borrar</a>
-            		<a href="editar.php?id='.$alumno['id'].'" class="botonm">Editar</a>
-          		</td>
-            </tr>
-            <?php
+            $query="SELECT id, nombre, apellido, TIMESTAMPDIFF(YEAR,fecha_nac,CURDATE()) as edad, dni, sexo FROM alumno";
+            $result=mysqli_query($conexion,$query);
+              while($res = mysqli_fetch_array($result)) {
+                switch ($res['sexo']) {
+                  case 'i':
+                    $sexo='Indefinido';
+                    break;
+                  case 'f':
+                      $sexo='Femenino';
+                    break;
+                  case 'm':
+                      $sexo='Masculino';
+                    break;
                 }
+                echo "<tr>";
+                echo "<td>".$res['dni']."</td>";
+                echo "<td>".$res['nombre']."</td>";
+                echo "<td>".$res['apellido']."</td>";
+                echo "<td>".$res['edad']."</td>";
+                echo "<td>".$sexo."</td>";
+                echo "<td><a href=\"editar_alumno.php?id=$res[id]\" class='button-blue'>Editar</a>  <a href=\"baja_alumno.php?id=$res[id]\" onClick=\"return confirm('¿Seguro que quiere borrar?')\" class='button-red'>Borrar</a></td>";
+              }
             ?>
           </tbody>
         </table>

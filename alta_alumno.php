@@ -7,16 +7,19 @@
   </head>
 
   <body>
+    <header>
+      <h1 class="contenedor__title">Unidique</h1>
+    </header>
     <?php
       //incluir el archivo que conecta con la base de datos
       include_once("conexion.php");
 
       if(isset($_POST['Enviar'])) {
-      	$nombre = mysqli_real_escape_string($mysqli, $_POST['nombre']);
-      	$apellido = mysqli_real_escape_string($mysqli, $_POST['apellido']);
-        $edad = mysqli_real_escape_string($mysqli, $_POST['edad']);
-        $dni = mysqli_real_escape_string($mysqli, $_POST['dni']);
-        $sexo = mysqli_real_escape_string($mysqli, $_POST['sexo']);
+      	$nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
+      	$apellido = mysqli_real_escape_string($conexion, $_POST['apellido']);
+        $fecha_nac = mysqli_real_escape_string($conexion, $_POST['fecha_nac']);
+        $dni = mysqli_real_escape_string($conexion, $_POST['dni']);
+        $sexo = mysqli_real_escape_string($conexion, $_POST['sexo']);
 
       	// verificar campos vacios
       	if(empty($nombre) || empty($apellido)) {
@@ -46,12 +49,16 @@
       		// si todos los campos fueron llenados...
 
       		//insertar datos en la base de datos
-      		$result = mysqli_query($mysqli, "INSERT INTO alumno(nombre,apellido,edad,dni,sexo) VALUES('$nombre','$apellido','$edad','$dni','$sexo')");
+      		$result = mysqli_query($conexion, "INSERT INTO alumno(nombre,apellido,fecha_nac,dni,sexo) VALUES('$nombre','$apellido','$fecha_nac','$dni','$sexo')");
+          //mostrar mensaje de exito
+          ?>
 
-      		//mostrar mensaje de exito
-      		echo "<font color='green'>Datos agregados correctamente.";
-      		echo "<br/><a class='button-grey' href='alumno.php'>Volver</a>";
-      	}
+          <div class='mensaje'>
+          <h3>Datos registrados correctamente.</h3>
+          </div>
+      		<br/><a class='button-grey' href='alumno.php'>Volver</a>
+          <?php
+          }
       }
     ?>
   </body>

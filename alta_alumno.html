@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap/css/bootstrap.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@300&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="./css/propio.css">
+	<link rel="stylesheet" type="text/css" href="./css/estilo3.css">
 </head>
 <body>
 	<div class="contenedor">
@@ -17,23 +17,24 @@
 			<form method="POST" action="alta_alumno.php" >
 				<div class="form-group">
 					<h3>Registrar Alumno</h3>
-          Nombre de alumno
-					<input class="form-control" type="text" autofocus name="nombre">
+          Nombre
+					<input class="form-control" type="text" autofocus name="nombre" required>
           <br>
           Apellido
-          <input class="form-control" type="text" name="apellido">
+          <input class="form-control" type="text" name="apellido" required>
 					<br>
-					Edad
-					<input class="form-control" type="num" name="edad">
+					Fecha de nacimiento
+					<input class="form-control" type="date" name="fecha_nac" required>
 					<br>
 					DNI del Alumno
-					<input class="form-control" type="text" name="dni">
+					<input class="form-control" type="text" name="dni" required>
 					<br>
-					Sexo
-					<input class="form-control" type="num" name="sexo">
+					<span class="datos">Sexo: </span><br>
+					<span class="datos">Indefinido:</span> <input class="" type="radio" name="sexo" value="i" checked="">
+					<span class="datos">Femenino:</span> <input class="" type="radio" name="sexo" value="f">
+					<span class="datos">Masculino:</span> <input class="" type="radio" name="sexo" value="m"><br>
 				</div>
 
-				<br>
 				<div class="form-group">
 					<input class="button-accept" type="submit" name="Enviar" value="Registrar">
 				</div>

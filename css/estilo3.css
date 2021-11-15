@@ -14,9 +14,15 @@ header{
   background-color: rgba(0, 0, 0,.5);
 }
 
+.contenedor__title /*IMPLEMENTAR METODOLOGIA BEM*/ {
+  margin-left: 30px;
+  font-size: 30px;
+	color: #FFFFFF;
+  font-family: 'Libre Baskerville', serif;
+}
+
 .ventana {
   background-color: rgba(0, 0, 0, 0.3);
-	border-radius: 10px;
 	color: #fff;
 	padding: 35px;
 	width: 400px;
@@ -27,6 +33,9 @@ header{
   font-size: 15px;
 }
 
+.mensaje{
+	text-align: center;
+}
 .button-accept{
   width: 100%;
   padding: 7px;
@@ -50,18 +59,69 @@ header{
 a:link, a:visited, a:active {
     text-decoration:none;
 }
+.button-red{
+  color: #fff;
+  background-color: #f33;
+  padding: 3px;
+  border: .5px solid #f33;
+}
 
-.contenedor__title /*IMPLEMENTAR METODOLOGIA BEM*/ {
-  margin-left: 30px;
-  font-size: 30px;
-	color: #FFFFFF;
-  font-family: 'Libre Baskerville', serif;
+.button-red:hover {
+  color: #f33;
+  background-color: #fff;
+  border: .5px solid #f33;
+  transition: all 250ms ease;
+}
+
+
+.button-red:focus{
+  background: linear-gradient(to bottom, #faa, #b00);
+  outline: none;
+  color: #fff;
+}
+
+.button-blue{
+  color: #fff;
+  background-color: #3498db;
+  padding: 3px;
+  border: .5px solid #3498db;
+	margin-right: 5px;
+}
+
+.button-blue:hover {
+  color: #3498db;
+  background-color: #fff;
+  border: .5px solid #3498db;
+  transition: all 250ms ease;
+}
+
+.button-blue:focus{
+  background: linear-gradient(to bottom, #aed6f1, #2874a6);
+  outline: none;
+  color: #fff;
+}
+
+.button-green{
+  color: #fff;
+  background-color: #1abc9c;
+  padding: 5px;
+}
+
+.button-green:hover {
+  color: #1abc9c;
+  background-color: #fff;
+  transition: all 500ms ease;
+}
+
+.button-green:focus{
+  background: linear-gradient(to bottom, #a3e4d7,  #117864);
+  outline: none;
+  color: #fff;
 }
 
 .button-grey{
   color: #fff;
   background-color: #444;
-	border-radius: 2px;
   padding: 3px;
   border: .5px solid #444;
   margin-left: 5px;

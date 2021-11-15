@@ -37,7 +37,7 @@
 
       		//insertar datos en la base de datos
           $pass=password_hash($_POST['pass'],PASSWORD_DEFAULT);
-      		$result = mysqli_query($mysqli, "INSERT INTO profe(nombre,mail,pass) VALUES('$nombre','$mail','$pass')");
+      		$result = mysqli_query($conexion, "INSERT INTO profe(nombre,mail,pass) VALUES('$nombre','$mail','$pass')");
 
       		//mostrar mensaje de exito
       		echo "<font color='green'>Datos agregados correctamente.";

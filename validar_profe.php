@@ -1,9 +1,8 @@
 <?php
-
+  include_once("conexion.php");
   $nombre=$_POST['nombre'];
   $pass=$_POST['pass'];
 
-  $conexion=mysqli_connect("localhost", "root", "", "proyecto");
   $consulta="SELECT pass FROM profe WHERE nombre='$nombre'";
   $resultado=mysqli_query($conexion, $consulta);
 
