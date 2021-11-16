@@ -21,6 +21,13 @@
         $dni = mysqli_real_escape_string($conexion, $_POST['dni']);
         $sexo = mysqli_real_escape_string($conexion, $_POST['sexo']);
 
+        $resultado = mysqli_query($conexion, "SELECT * FROM alumno");
+        $cont=0;
+        while($res = mysqli_fetch_array($resultado)){
+          if ($dni == $res['dni']) {
+            $cont=$cont+1;
+          }
+        }
       	// verificar campos vacios
       	if(empty($nombre) || empty($apellido)) {
 
@@ -45,7 +52,17 @@
       		}
 
       		echo "<br/><a class='button-grey' href='javascript:self.history.back();'>Volver</a>";
-      	} else {
+      	} elseif ($cont>0) {
+          ?>
+          <div class='mensaje-m'>
+            <h3>Ya hay un alumno con ese DNI.</h3><br>
+            <div class="form-group">
+              <a class='button-accept' href='javascript:self.history.back();'>Volver</a>
+            </div>
+          </div>
+
+          <?php
+        }else {
       		// si todos los campos fueron llenados...
 
       		//insertar datos en la base de datos
@@ -53,10 +70,12 @@
           //mostrar mensaje de exito
           ?>
 
-          <div class='mensaje'>
-          <h3>Datos registrados correctamente.</h3>
+          <div class='mensaje-b'>
+          <h3>Datos registrados correctamente.</h3><br>
+            <div class="form-group">
+              <a class='button-accept' href='alumno.php'>Volver</a>
+            </div>
           </div>
-      		<br/><a class='button-grey' href='alumno.php'>Volver</a>
           <?php
           }
       }

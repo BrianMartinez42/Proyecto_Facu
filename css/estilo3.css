@@ -1,5 +1,5 @@
 body {
-	background: url(../img/back.jpg);
+	background-image: url(../img/back4.jpg);
 	background-size: cover;
 }
 
@@ -33,9 +33,32 @@ header{
   font-size: 15px;
 }
 
-.mensaje{
+.mensaje-m{
+	background-color: rgba(255, 0, 0, 0.6);
 	text-align: center;
+	color: #fff;
+	padding: 35px;
+	width: 500px;
+	margin: 50px auto;
+ 	flex-direction: column;
+ 	align-items: center;
+  align-content: center;
+  font-size: 15px;
 }
+
+.mensaje-b{
+	background-color: rgba(50, 200, 50, 0.6);
+	text-align: center;
+	color: #fff;
+	padding: 35px;
+	width: 500px;
+	margin: 50px auto;
+ 	flex-direction: column;
+ 	align-items: center;
+  align-content: center;
+  font-size: 15px;
+}
+
 .button-accept{
   width: 100%;
   padding: 7px;

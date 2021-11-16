@@ -25,7 +25,7 @@
       <br>
 
       <div class="col-lg-12 col-md-8">
-        <a href="alta_alumno.html" class="button-green" type="submit"> Alta </a>
+        <a href="alta_alumno.html" class="button-green" type="submit"> Registrar Alumno </a>
         <br><br>
         <table class="table bg-light table-bordered table-hover">
           <thead class="thead-dark">
