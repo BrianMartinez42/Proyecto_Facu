@@ -8,7 +8,7 @@
 
   <body>
     <header>
-      <h1 class="contenedor__title">Unidique</h1>
+      <h1 class="contenedor__title">Infinexus</h1>
     </header>
     <?php
       //incluir el archivo que conecta con la base de datos

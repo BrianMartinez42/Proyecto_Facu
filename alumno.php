@@ -20,7 +20,7 @@
   <body>
     <div class="contenedor">
       <header>
-        <h1 class="contenedor__title">Unidique</h1>
+        <h1 class="contenedor__title">Infinexus</h1>
       </header>
       <br>
 

@@ -66,7 +66,7 @@ if(isset($_POST['actualizar']))
 
 <body>
 	<header>
-		<h1 class="contenedor__title">Unidique</h1>
+		<h1 class="contenedor__title">Infinexus</h1>
 	</header>
 	<br/>
 	<a href="alumno.php" class="button-grey">Inicio</a>
