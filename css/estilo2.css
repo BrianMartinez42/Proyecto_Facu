@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+body {
+	background-image: url(../img/back4.jpg);
+	background-size: cover;
+}
+
 .wrapper{
 	width: 1170px;
 	margin: auto;
@@ -19,13 +24,13 @@
 
 header{
   width: 100%;
-  color: #fff;
+  color: #FFFFFF;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   align-content: center;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0,.3);
+  background-color: rgba(0, 0, 0,.5);
 }
 
 .contenedor__title /*IMPLEMENTAR METODOLOGIA BEM*/ {
