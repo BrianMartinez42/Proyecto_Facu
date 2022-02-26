@@ -27,7 +27,7 @@
       <div class="col-lg-12 col-md-8">
         <a href="alta_alumno.html" class="button-green" type="submit"> Registrar Alumno </a>
         <br><br>
-        <table class="table bg-light table-bordered table-hover">
+        <table class="table bg-light table-bordered table-hover table-sm">
           <thead class="thead-dark">
             <tr>
               <th scope="col">DNI</th>
