@@ -1,6 +1,6 @@
 <?php
   include_once "Proyecto.php";
-  $user= new Proyecto();
+  $user = new Proyecto();
   $response = array();
 
   $u=$user->buscar("alumno","1");
