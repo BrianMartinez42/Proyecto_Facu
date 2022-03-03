@@ -22,6 +22,7 @@
       }
     }
 
+    //BORRAR
     public function borrar($id){
       if ($consulta = $this->conexion->query("DELETE FROM alumno WHERE id={$id}")){
         return $array = array('delete' => 'success');
@@ -32,5 +33,6 @@
       }
     }
 
+    
   }
 ?>

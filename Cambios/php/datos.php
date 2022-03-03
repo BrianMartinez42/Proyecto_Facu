@@ -1,16 +1,16 @@
 <?php
   include_once "Proyecto.php";
-  $user = new Proyecto();
+  $datos = new Proyecto();
   $response = array();
 
-  $u=$user->buscar("alumno","1");
+  $d=$datos->buscar("alumno","1");
   $response["alumno"]=array();
-  foreach ($u as $key){
-    $datos=array();
+  foreach ($d as $key){
+    $arreglo=array();
     foreach ($key as $k => $v){
-      $datos[$k] = $v;
+      $arreglo[$k] = $v;
     }
-    array_push($response["alumno"], $datos);
+    array_push($response["alumno"], $arreglo);
   }
   die(json_encode($response));
 ?>
