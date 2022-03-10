@@ -1,5 +1,6 @@
 $(document).ready(function(){
   cargarTabla();
+  ocultarModal();
 });
 
 function cargarTabla() {
@@ -29,7 +30,7 @@ function cargarTabla() {
           <td class="table-light">${item.dni}</td>
           <td class="table-light">${item.fecha_nac}</td>
           <td class="table-light">${item.sexo}</td>
-          <td class="text-center table-light"><a class="btn btn-info">Editar</a><a class="btn btn-danger">Borrar</a></td>
+          <td class="text-center table-light"><a class="btn btn-info" onClick="modificar(${item.id})">Editar</a><a class="btn btn-danger onClick="baja(${item.id})">Borrar</a></td>
         </tr>
         `
       }
@@ -38,7 +39,7 @@ function cargarTabla() {
   .catch((error) =>{
     show_message('error','No se pudo conectar.');
   })
-}
+};
 
 //INSTANCIO LA CONSTANTE ON PARA PASAR 4 PARAMETROS Y USARLOS EN LOS BOTONES DE ACCION
 const on = (element, event, selector, handler) => {
@@ -46,6 +47,35 @@ const on = (element, event, selector, handler) => {
     if (e.target.closest(selector)) {
       handler(e)
     }
+  })
+}
+
+function ocultarModal() {
+  var modif = document.getElementById('modal-modif');
+  modif.style.display = 'none';
+
+  // var alta = document.getElementById('modal-alta');
+  // alta.style.display = 'none';
+}
+
+function modificar(id){
+  var ventana = document.getElementById('modal-modif');
+  ventana.style.display= 'block';
+
+  fetch('php/modificar.php?id=' + id)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    for (var i in data['alumno']) {
+      document.getElementById('nombre-modif').value = data['alumno'][i].nombre;
+      document.getElementById('apellido-modif').value = data['alumno'][i].apellido;
+      document.getElementById('dni-modif').value = data['alumno'][i].dni;
+      document.getElementById('fecha-nac-modif').value = data['alumno'][i].fecha_nac;
+    }
+
+  })
+  .catch((error) => {
+    console.log(error);
   })
 }
 
@@ -67,7 +97,7 @@ on(document, 'click', '.btn-danger', e =>{
           cargarTabla();
       } else {
           console.log('error');
-          console.log(res);
+          console.log(response);
       }
     })
     .catch((error)=>{

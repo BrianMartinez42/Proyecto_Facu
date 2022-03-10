@@ -9,7 +9,7 @@
         src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <script src="connect.js" charset="utf-8"></script>
     <title>Cambios</title>
   </head>
 
@@ -38,7 +38,30 @@
       </div>
     </div>
 
-    <script src="connect.js" charset="utf-8"></script>
+    <div class="modal-modif" id="modal-modif" style="background: white; width: 60%; height: 80%;">
+      <div class="modal-form">
+        <h3>Editar datos del Alumno</h3>
+        Nombre
+        <input class="form-control" type="text" autofocus name="nombre" id="nombre-modif" required>
+        <br>
+        Apellido
+        <input class="form-control" type="text" name="apellido" id="apellido-modif" required>
+        <br>
+        Fecha de nacimiento
+        <input class="form-control" type="date" name="fecha_nac" id="fecha-nac-modif" required>
+        <br>
+        DNI del Alumno
+        <input class="form-control" type="text" name="dni" id="dni-modif" required>
+        <br>
+        <span class="datos">Sexo: </span><br>
+        <span class="datos">Indefinido:</span> <input class="" type="radio" name="sexo" value="i" checked="">
+        <span class="datos">Femenino:</span> <input class="" type="radio" name="sexo" value="f">
+        <span class="datos">Masculino:</span> <input class="" type="radio" name="sexo" value="m">
+      </div>
+    </div>
+
+
+
   </body>
 
 </html>

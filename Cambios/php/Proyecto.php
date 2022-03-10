@@ -33,6 +33,37 @@
       }
     }
 
-    
+    //TRAER
+    public function traerDatos($id){
+      if ($consulta = $this->conexion->query("SELECT * FROM alumno WHERE id={$id}")) {
+        $datos = [];
+        while ($fila = $consulta->fetch_assoc()) {
+          $datos['alumno'][] = $fila;
+        }
+        return $datos;
+      }
+      else {
+        return false;
+      }
+    }
+
+    //AGREGAR
+    public function alta($alum){
+      $alumno = json_decode($alum,true);
+      $nombre = $alumno['nombre'];
+      $dni = $alumno['dni'];
+      $apellido = $alumno['apellido'];
+      $fecha_nac = $alumno['fecha_nac'];
+      $sexo = $alumno['sexo'];
+
+      if ($consulta = $this->conexion->query("INSERT INTO alumno(nombre, apellido, dni, fecha_nac, sexo) VALUES ('{$nombre}')")){
+        return $array = array('insert' => 'success');
+        $consulta->close();
+      } else {
+        return $array = array('insert' => 'failed');
+        $consulta->close();
+      }
+    }
+
   }
 ?>
