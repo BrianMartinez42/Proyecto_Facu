@@ -1,5 +1,5 @@
 body {
-	background-image: url(../img/back4.jpg);
+	background-image: url(../img/back.jpg);
 	background-size: cover;
 }
 
@@ -22,7 +22,9 @@ header{
 }
 
 .ventana {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
 	color: #fff;
 	padding: 35px;
 	width: 400px;

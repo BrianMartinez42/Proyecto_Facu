@@ -33,6 +33,17 @@
       }
     }
 
+    //MODIFICAR
+    public function modificar($nombre,$apellido,$dni,$fecha_nac,$id){
+      if ($consulta = $this->conexion->query("UPDATE alumno SET nombre = '$nombre', apellido =  '$apellido', dni = '$dni', fecha_nac = '$fecha_nac' WHERE id=$id")) {
+        return $array = array('update' => 'success');
+        $consulta->close();
+      } else {
+        return $array = array('update' => 'failed');
+        $consulta->close();
+      }
+    }
+
     //TRAER
     public function traerDatos($id){
       if ($consulta = $this->conexion->query("SELECT * FROM alumno WHERE id={$id}")) {
