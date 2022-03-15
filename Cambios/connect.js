@@ -22,6 +22,18 @@ function cargarTabla() {
       datos = data.alumno;
       console.log(datos);
       for (let item of datos) {
+
+        //REEMPLAZO LA LETRA QUE TRAE SEXO POR SU PALABRA CORRESPONDIENTE
+        switch (item.sexo) {
+          case 'f':
+            var sexo = 'Femenino';
+            break;
+          case 'm':
+            var sexo = 'Masculino';
+            break;
+          default:
+            var sexo = 'Indefinido';
+        }
         res.innerHTML+=`
         <tr>
           <td class="table-light" hidden>${item.id}</td>
@@ -29,7 +41,7 @@ function cargarTabla() {
           <td class="table-light">${item.apellido}</td>
           <td class="table-light">${item.dni}</td>
           <td class="table-light">${item.fecha_nac}</td>
-          <td class="table-light">${item.sexo}</td>
+          <td class="table-light">${sexo}</td>
           <td class="text-center table-light"><a class="btn btn-info" onClick="modalModif(${item.id})">Editar</a><a class="btn btn-danger" onClick="baja(${item.id})">Borrar</a></td>
         </tr>
         `
@@ -45,8 +57,8 @@ function ocultarModal() {
   var modif = document.getElementById('modal-modif');
   modif.style.display = 'none';
 
-  // var alta = document.getElementById('modal-alta');
-  // alta.style.display = 'none';
+  var alta = document.getElementById('modal-alta');
+  alta.style.display = 'none';
 }
 
 //OBTENER DATOS PARA MODIFICAR
@@ -64,8 +76,18 @@ function modalModif(id){
       document.getElementById('apellido-modif').value = data['alumno'][i].apellido;
       document.getElementById('dni-modif').value = data['alumno'][i].dni;
       document.getElementById('fecha-nac-modif').value = data['alumno'][i].fecha_nac;
-    }
 
+      switch (sexo = data['alumno'][i].sexo) {
+        case 'm':
+          document.querySelector('#radio-container > [value="m"]').checked = true;
+          break;
+        case 'f':
+          document.querySelector('#radio-container > [value="f"]').checked = true;
+          break;
+        default:
+          document.querySelector('#radio-container > [value="i"]').checked = true;
+      }
+    }
   })
   .catch((error) => {
     console.log(error);
@@ -80,6 +102,14 @@ function modificar(){
   var dni = document.getElementById('dni-modif').value;
   var fecha_nac = document.getElementById('fecha-nac-modif').value;
 
+  var radio = document.getElementsByName('sexo-modif');
+
+  for(i=0; i<radio.length; i++){
+    if(radio[i].checked){
+      var sexo = radio[i].value;
+    }
+  }
+
   if (nombre === '' || apellido === '' || dni === '' || fecha_nac === '') {
     alert('Por favor, llene todos los campos');
     return false;
@@ -89,9 +119,9 @@ function modificar(){
       'nombre' : nombre,
       'apellido' : apellido,
       'dni' : dni,
-      'fecha_nac' : fecha_nac
+      'fecha_nac' : fecha_nac,
+      'sexo' : sexo
     }
-
     fetch('php/modificar.php',{
       method : 'PUT',
       body : JSON.stringify(datos),
@@ -106,7 +136,7 @@ function modificar(){
           alert('Datos actualizados.');
           ocultarModal();
           cargarTabla();
-          document.getElementById('modal-modif').reset();
+          // document.getElementById('modal-modif').reset();
       } else {
           console.log('error');
           console.log(response);

@@ -11,7 +11,7 @@
       $this->conexion->set_charset("utf8");
     }
 
-    //BUSCAR
+    //MOSTRAR
     public function buscar($tabla, $condicion){
       $consulta = $this->conexion->query("SELECT * FROM $tabla WHERE $condicion") or die($this->conexion->error);
       if ($consulta){
@@ -33,17 +33,6 @@
       }
     }
 
-    //MODIFICAR
-    public function modificar($nombre,$apellido,$dni,$fecha_nac,$id){
-      if ($consulta = $this->conexion->query("UPDATE alumno SET nombre = '$nombre', apellido =  '$apellido', dni = '$dni', fecha_nac = '$fecha_nac' WHERE id=$id")) {
-        return $array = array('update' => 'success');
-        $consulta->close();
-      } else {
-        return $array = array('update' => 'failed');
-        $consulta->close();
-      }
-    }
-
     //TRAER
     public function traerDatos($id){
       if ($consulta = $this->conexion->query("SELECT * FROM alumno WHERE id={$id}")) {
@@ -55,6 +44,17 @@
       }
       else {
         return false;
+      }
+    }
+
+    //MODIFICAR
+    public function modificar($id,$nombre,$apellido,$dni,$fecha_nac,$sexo){
+      if ($consulta = $this->conexion->query("UPDATE alumno SET nombre = '$nombre', apellido =  '$apellido', dni = '$dni', fecha_nac = '$fecha_nac', sexo = '$sexo' WHERE id=$id")) {
+        return $array = array('update' => 'success');
+        $consulta->close();
+      } else {
+        return $array = array('update' => 'failed');
+        $consulta->close();
       }
     }
 

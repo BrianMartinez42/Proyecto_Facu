@@ -18,7 +18,6 @@
 
     <div class="container">
       <div class="section">
-        <!-- <button type="button" name="button" class="btn btn-primary" onclick="traer()">Datos</button> -->
 
         <table class="mt-2 table text-white table-bordered table-hover table-sm">
           <thead class="thead-black">
@@ -39,9 +38,11 @@
       </div>
     </div>
 
+
+    <!-- MODAL MODIFICAR DATOS -->
     <div class="ventana" id="modal-modif">
       <div class="modal-form">
-        <h3>Editar datos del Alumno</h3>
+        <h3>Modificar Datos</h3>
         Nombre
         <input class="form-control" type="text" autofocus name="nombre" id="nombre-modif" required>
         <input type="num" name="id" id="id-modif" hidden>
@@ -55,15 +56,43 @@
         DNI del Alumno
         <input class="form-control" type="text" name="dni" id="dni-modif" required>
         <br>
-        <span class="datos">Sexo: </span><br>
-        <span class="datos">Indefinido:</span> <input class="" type="radio" name="sexo" value="i" checked="">
-        <span class="datos">Femenino:</span> <input class="" type="radio" name="sexo" value="f">
-        <span class="datos">Masculino:</span> <input class="" type="radio" name="sexo" value="m">
-        <input class="button-accept" type="submit" name="actualizar" value="Actualizar" onClick="modificar()">
+        <div class="" id='radio-container'>
+          <span class="datos">Sexo: </span><br>
+          <span class="datos">Indefinido:</span> <input class="" type="radio" name="sexo-modif" value="i">
+          <span class="datos">Femenino:</span> <input class="" type="radio" name="sexo-modif" value="f">
+          <span class="datos">Masculino:</span> <input class="" type="radio" name="sexo-modif" value="m">
+          <input class="button-accept" type="submit" name="modificar" value="Modificar" onClick="modificar()">
+        </div>
       </div>
     </div>
 
+    <!-- MODAL ALUMNO NUEVO -->
+    <div class="ventana" id="modal-alta">
+      <div class="modal-form">
+        <h3>Agregar Alumno</h3>
+        Nombre
+        <input class="form-control" type="text" autofocus name="nombre" id="nombre-alta" required>
+        <input type="num" name="id" id="id-modif" hidden>
+        <br>
+        Apellido
+        <input class="form-control" type="text" name="apellido" id="apellido-alta" required>
+        <br>
+        Fecha de nacimiento
+        <input class="form-control" type="date" name="fecha_nac" id="fecha-nac-alta" required>
+        <br>
+        DNI del Alumno
+        <input class="form-control" type="text" name="dni" id="dni-alta" required>
+        <br>
+        <div class="" id="radio-container">
+          <span class="datos">Sexo: </span><br>
+          <span class="datos">Indefinido:</span> <input class="" type="radio" name="sexo-alta" value="i">
+          <span class="datos">Femenino:</span> <input class="" type="radio" name="sexo-alta" value="f">
+          <span class="datos">Masculino:</span> <input class="" type="radio" name="sexo-alta" value="m">
+          <input class="button-accept" type="submit" name="agregar" value="Agregar" onClick="alta()">
+        </div>
 
+      </div>
+    </div>
 
   </body>
 
