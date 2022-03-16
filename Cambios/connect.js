@@ -1,7 +1,9 @@
-$(document).ready(function(){
+document.addEventListener('DOMContentLoaded', funcionando, false);
+
+function funcionando() {
   cargarTabla();
   ocultarModal();
-});
+}
 
 function cargarTabla() {
   let res = document.querySelector('#resultado');
@@ -36,7 +38,6 @@ function cargarTabla() {
         }
         res.innerHTML+=`
         <tr>
-          <td class="table-light" hidden>${item.id}</td>
           <td class="table-light">${item.nombre}</td>
           <td class="table-light">${item.apellido}</td>
           <td class="table-light">${item.dni}</td>
@@ -49,7 +50,7 @@ function cargarTabla() {
     }
   })
   .catch((error) =>{
-    show_message('error','No se pudo conectar.');
+    console.log(error,'No se pudo conectar.');
   })
 };
 
@@ -59,6 +60,64 @@ function ocultarModal() {
 
   var alta = document.getElementById('modal-alta');
   alta.style.display = 'none';
+}
+
+//MOSTRAR MODAL ALTA
+function modalAlta(){
+  var ventana = document.getElementById('modal-alta');
+  ventana.style.display= 'block';
+}
+
+//AGREGAR ALUMNO
+function alta(){
+  var nombre = document.getElementById('nombre-alta').value;
+  var apellido = document.getElementById('apellido-alta').value;
+  var dni = document.getElementById('dni-alta').value;
+  var fecha_nac = document.getElementById('fecha-nac-alta').value;
+
+  var radio = document.getElementsByName('sexo-alta');
+
+  for(i=0; i<radio.length; i++){
+    if(radio[i].checked){
+      var sexo = radio[i].value;
+    }
+  }
+
+  if (nombre === '' || apellido === '' || dni === '' || fecha_nac === '' || sexo === undefined) {
+    alert('Por favor, llene todos los campos');
+    return false;
+  } else {
+    var datos = {
+      'nombre' : nombre,
+      'apellido' : apellido,
+      'dni' : dni,
+      'fecha_nac' : fecha_nac,
+      'sexo' : sexo
+    }
+
+    fetch('php/alta.php',{
+      method : 'PUT',
+      body : JSON.stringify(datos),
+      headers : {
+        'Content_type' : 'application/json',
+      }
+    })
+    .then((response) => response.json())
+    //SI EL JSON ME TRAE EL VALOR SUCCESS, MUESTRO UN MENSAJE DE CONFIRMACION, SINO, MUESTRO EL ERROR POR CONSOLA
+    .then((result) => {
+      if (result.insert == 'success') {
+          alert('Datos cargados.');
+          ocultarModal();
+          cargarTabla();
+      } else {
+          console.log('error');
+          console.log(response);
+      }
+    })
+    .catch((error)=>{
+      console.log(error);
+    });
+  }
 }
 
 //OBTENER DATOS PARA MODIFICAR
@@ -79,13 +138,13 @@ function modalModif(id){
 
       switch (sexo = data['alumno'][i].sexo) {
         case 'm':
-          document.querySelector('#radio-container > [value="m"]').checked = true;
+          document.querySelector('#radio-modif-container > [value="m"]').checked = true;
           break;
         case 'f':
-          document.querySelector('#radio-container > [value="f"]').checked = true;
+          document.querySelector('#radio-modif-container > [value="f"]').checked = true;
           break;
         default:
-          document.querySelector('#radio-container > [value="i"]').checked = true;
+          document.querySelector('#radio-modif-container > [value="i"]').checked = true;
       }
     }
   })
@@ -122,6 +181,7 @@ function modificar(){
       'fecha_nac' : fecha_nac,
       'sexo' : sexo
     }
+
     fetch('php/modificar.php',{
       method : 'PUT',
       body : JSON.stringify(datos),
@@ -136,7 +196,6 @@ function modificar(){
           alert('Datos actualizados.');
           ocultarModal();
           cargarTabla();
-          // document.getElementById('modal-modif').reset();
       } else {
           console.log('error');
           console.log(response);

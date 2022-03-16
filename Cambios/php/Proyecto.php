@@ -22,6 +22,17 @@
       }
     }
 
+    //ALTA
+    public function alta($nombre,$apellido,$dni,$fecha_nac,$sexo){
+      if ($consulta = $this->conexion->query("INSERT INTO alumno(nombre,apellido,fecha_nac,dni,sexo) VALUES('$nombre','$apellido','$fecha_nac','$dni','$sexo')")) {
+        return $array = array('insert' => 'success');
+        $consulta->close();
+      } else {
+        return $array = array('insert' => 'failed');
+        $consulta->close();
+      }
+    }
+
     //BORRAR
     public function borrar($id){
       if ($consulta = $this->conexion->query("DELETE FROM alumno WHERE id={$id}")){
@@ -54,24 +65,6 @@
         $consulta->close();
       } else {
         return $array = array('update' => 'failed');
-        $consulta->close();
-      }
-    }
-
-    //AGREGAR
-    public function alta($alum){
-      $alumno = json_decode($alum,true);
-      $nombre = $alumno['nombre'];
-      $dni = $alumno['dni'];
-      $apellido = $alumno['apellido'];
-      $fecha_nac = $alumno['fecha_nac'];
-      $sexo = $alumno['sexo'];
-
-      if ($consulta = $this->conexion->query("INSERT INTO alumno(nombre, apellido, dni, fecha_nac, sexo) VALUES ('{$nombre}')")){
-        return $array = array('insert' => 'success');
-        $consulta->close();
-      } else {
-        return $array = array('insert' => 'failed');
         $consulta->close();
       }
     }
