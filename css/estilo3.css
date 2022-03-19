@@ -21,53 +21,69 @@ header{
   font-family: 'Libre Baskerville', serif;
 }
 
-.ventana {
-  background-color: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(20px);
-	-webkit-backdrop-filter: blur(20px);
-	color: #fff;
-	padding: 35px;
-	width: 400px;
-	margin: 50px auto;
- 	flex-direction: column;
- 	align-items: center;
-  align-content: center;
-  font-size: 15px;
+.contenedor-modal{
+	background: rgba(0, 0, 0, 0.5);
+	height: 100vh;
+	left:0;
+	position: fixed;
+	top:0;
+	width: 100%;
+	z-index: 1000;
 }
 
-.mensaje-m{
-	background-color: rgba(255, 0, 0, 0.6);
-	text-align: center;
+.mi-modal {
+	align-content: center;
+	align-items: center;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	background-color: rgba(0, 0, 0, 0.5);
 	color: #fff;
-	padding: 35px;
-	width: 500px;
-	margin: 50px auto;
+	display: flex;
  	flex-direction: column;
- 	align-items: center;
-  align-content: center;
   font-size: 15px;
+	margin: 50px auto;
+	padding: 35px;
+	position: relative;
+	/* transition: transform 1s;
+	transform: translateY(-50%); */
+	width: 400px;
+}
+
+
+
+.mensaje-m{
+	align-content: center;
+	align-items: center;
+	background-color: rgba(255, 0, 0, 0.6);
+	color: #fff;
+ 	flex-direction: column;
+  font-size: 15px;
+	margin: 50px auto;
+	padding: 35px;
+	text-align: center;
+	width: 500px;
 }
 
 .mensaje-b{
+	align-content: center;
+	align-items: center;
 	background-color: rgba(50, 200, 50, 0.6);
-	text-align: center;
 	color: #fff;
-	padding: 35px;
-	width: 500px;
-	margin: 50px auto;
  	flex-direction: column;
- 	align-items: center;
-  align-content: center;
   font-size: 15px;
+	margin: 50px auto;
+	padding: 35px;
+	text-align: center;
+	width: 500px;
 }
 
 .button-accept{
-  width: 100%;
-  padding: 7px;
-  margin: 6px 0;
-  border: none;
-  color: #fff;
   background-color: #444;
+	border: none;
+	color: #fff;
+  margin: 6px 0;
+	padding: 7px;
+	width: 100%;
 }
 
 .button-accept:hover {
@@ -76,91 +92,100 @@ header{
 }
 
 .button-accept:focus{
-	color: #fff;
 	background: linear-gradient(to bottom, transparent, #444);
+	color: #fff;
+  outline: none;
+}
+
+.button-cancel{
+  background-color: #FF0000;
+  border: none;
+  color: #FFFFFF;
+  margin: 6px 0;
+	padding: 7px;
+	width: 100%;
+}
+
+.button-cancel:hover {
+  background-color: #fff;
+	color: #ff0000;
+}
+
+.button-cancel:focus{
+	background: linear-gradient(to bottom, transparent, #ff0000);
+	color: #fff;
   outline: none;
 }
 
 a:link, a:visited, a:active {
     text-decoration:none;
 }
+
 .button-red{
-  color: #fff;
-  background-color: #f33;
-  padding: 3px;
-  border: .5px solid #f33;
+	align-items: center;
+	background-color: #FF3333;
+	color: #FFFFFF;
+	display: inline-block;
+	padding: 5px 25px;
+	text-align: center;
+	text-decoration: none;
 }
 
 .button-red:hover {
-  color: #f33;
-  background-color: #fff;
-  border: .5px solid #f33;
+	background-color: #fff;
+	color: #FF3333;
+	cursor: pointer;
   transition: all 250ms ease;
-}
-
-
-.button-red:focus{
-  background: linear-gradient(to bottom, #faa, #b00);
-  outline: none;
-  color: #fff;
 }
 
 .button-blue{
-  color: #fff;
-  background-color: #3498db;
-  padding: 3px;
-  border: .5px solid #3498db;
-	margin-right: 5px;
+	align-items: center;
+	background-color: #3498DB;
+	color: #FFFFFF;
+	display: inline-block;
+	padding: 5px 25px;
+	text-align: center;
+	text-decoration: none;
 }
 
 .button-blue:hover {
-  color: #3498db;
-  background-color: #fff;
-  border: .5px solid #3498db;
-  transition: all 250ms ease;
-}
-
-.button-blue:focus{
-  background: linear-gradient(to bottom, #aed6f1, #2874a6);
-  outline: none;
-  color: #fff;
+	background-color: #FFFFFF;
+	color: #3498db;
+	cursor: pointer;
 }
 
 .button-green{
-  color: #fff;
-  background-color: #1abc9c;
-  padding: 5px;
+	align-items: center;
+	background-color: #00BB44;
+  color: #FFFFFF;
+	display: inline-block;
+  padding: 5px 25px;
+	text-align: center;
+	text-decoration: none;
 }
 
 .button-green:hover {
-  color: #1abc9c;
-  background-color: #fff;
-  transition: all 500ms ease;
-}
-
-.button-green:focus{
-  background: linear-gradient(to bottom, #a3e4d7,  #117864);
-  outline: none;
-  color: #fff;
+	background-color: #FFFFFF;
+	color: #00DD66;
+  cursor: pointer;
+	transition: all 250ms ease;
 }
 
 .button-grey{
-  color: #fff;
-  background-color: #444;
-  padding: 3px;
-  border: .5px solid #444;
+	background-color: #444444;
+  color: #FFFFFF;
   margin-left: 5px;
+	padding: 3px;
 }
 
 .button-grey:hover {
+	background-color: #fff;
 	color: #444;
-  background-color: #fff;
-  border: .5px solid #444;
   transition: all 250ms ease;
 }
 
 .button-grey:focus{
   background: linear-gradient(to bottom, #aaa, #111);
-  outline: none;
-  color: #fff;
+	color: #fff;
+	outline: none;
 }

@@ -43,7 +43,7 @@ function cargarTabla() {
           <td class="table-light">${item.dni}</td>
           <td class="table-light">${item.fecha_nac}</td>
           <td class="table-light">${sexo}</td>
-          <td class="text-center table-light"><a class="btn btn-info" onClick="modalModif(${item.id})">Editar</a><a class="btn btn-danger" onClick="baja(${item.id})">Borrar</a></td>
+          <td class="text-center table-light"><a class="button-blue" onClick="modalModif(${item.id})">Editar</a><a class="button-red" onClick="baja(${item.id})">Borrar</a></td>
         </tr>
         `
       }
@@ -60,6 +60,11 @@ function ocultarModal() {
 
   var alta = document.getElementById('modal-alta');
   alta.style.display = 'none';
+
+  document.getElementById("nombre-alta").value = "";
+  document.getElementById("apellido-alta").value = "";
+  document.getElementById("dni-alta").value = "";
+  document.getElementById("fecha-nac-alta").value = "";
 }
 
 //MOSTRAR MODAL ALTA
